@@ -4,12 +4,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:water_app/firebase_options.dart';
+import 'package:water_app/screens/auth/logo.dart';
+import 'package:water_app/screens/notifications/notification_service.dart';
+import 'package:water_app/screens/notifications/push_notification.dart';
 import 'theme.dart';
-import 'screens/logo.dart';
 import 'translations.dart';
-import 'screens/Notificationservice.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'screens/push_notification.dart';
 
 @pragma('vm:entry-point')
 Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {

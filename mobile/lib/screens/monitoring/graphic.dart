@@ -8,10 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:water_app/screens/ChartsScreen.dart';
-import 'app_background.dart';
-import 'SettingsScreen.dart';
-import 'dashboard_screen.dart';
+import 'package:water_app/screens/common/app_background.dart';
+import 'package:water_app/screens/monitoring/charts_screen.dart';
+import 'package:water_app/screens/monitoring/dashboard_screen.dart';
+import 'package:water_app/screens/settings/settings_screen.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  Local data model

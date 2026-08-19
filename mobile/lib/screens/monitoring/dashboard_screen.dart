@@ -2,14 +2,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'app_background.dart';
-import 'ChartsScreen.dart';
-import 'SettingsScreen.dart';
-import 'graphic.dart';
+import 'package:water_app/screens/common/app_background.dart';
+import 'package:water_app/screens/monitoring/charts_screen.dart';
+import 'package:water_app/screens/monitoring/graphic.dart';
 import 'calibration_screen.dart';
 import 'checklist.dart';
-import '../translations.dart';
-import 'notificationservice.dart'; // ← import the service
+import 'package:water_app/screens/notifications/notification_service.dart';
+import 'package:water_app/screens/settings/settings_screen.dart';
+import 'package:water_app/translations.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  Sensor normal ranges  (edit here to adjust thresholds)

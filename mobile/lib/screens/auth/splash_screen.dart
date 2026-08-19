@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 import 'login_screen.dart';
-import 'dashboard_screen.dart';
+import 'package:water_app/screens/monitoring/dashboard_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   final Locale currentLocale;

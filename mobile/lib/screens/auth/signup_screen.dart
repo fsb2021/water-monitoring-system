@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'dashboard_screen.dart';
-import 'app_background.dart';
-import '../translations.dart';
+import 'package:water_app/screens/common/app_background.dart';
+import 'package:water_app/screens/monitoring/dashboard_screen.dart';
+import 'package:water_app/translations.dart';
 
 class SignUpScreen extends StatefulWidget {
   final Locale currentLocale;

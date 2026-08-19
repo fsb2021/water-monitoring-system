@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'dashboard_screen.dart';
-import 'graphic.dart';
-import 'ChartsScreen.dart';
-import 'login_screen.dart';
-import 'app_background.dart';
-import 'Notificationmanagementscreen.dart';
-import '../translations.dart';
+import 'package:water_app/screens/auth/login_screen.dart';
+import 'package:water_app/screens/common/app_background.dart';
+import 'package:water_app/screens/monitoring/charts_screen.dart';
+import 'package:water_app/screens/monitoring/dashboard_screen.dart';
+import 'package:water_app/screens/monitoring/graphic.dart';
+import 'package:water_app/screens/settings/notification_management_screen.dart';
+import 'package:water_app/translations.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Realtime Database layout

@@ -4,11 +4,11 @@ import 'package:firebase_ai/firebase_ai.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
-import 'SettingsScreen.dart';
-import 'app_background.dart';
-import 'dashboard_screen.dart';
-import 'graphic.dart';
-import '../translations.dart';
+import 'package:water_app/screens/common/app_background.dart';
+import 'package:water_app/screens/monitoring/dashboard_screen.dart';
+import 'package:water_app/screens/monitoring/graphic.dart';
+import 'package:water_app/screens/settings/settings_screen.dart';
+import 'package:water_app/translations.dart';
 
 class ChartsScreen extends StatefulWidget {
   final Locale currentLocale;

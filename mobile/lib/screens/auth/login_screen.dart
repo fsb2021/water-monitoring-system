@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:google_sign_in/google_sign_in.dart'; // ← NEW IMPORT
-import 'dashboard_screen.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:water_app/screens/monitoring/dashboard_screen.dart';
+import 'package:water_app/screens/notifications/push_notification.dart';
+import 'package:water_app/translations.dart';
 import 'signup_screen.dart';
-import 'app_background.dart';
-import '../translations.dart';
-import '../screens/push_notification.dart';
+import 'package:water_app/screens/common/app_background.dart';
 
 class LoginScreen extends StatefulWidget {
   final Locale currentLocale;

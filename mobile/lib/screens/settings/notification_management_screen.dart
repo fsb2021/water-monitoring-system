@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'app_background.dart';
-import '../translations.dart';
+import 'package:water_app/screens/common/app_background.dart';
+import 'package:water_app/translations.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Realtime Database layout used here

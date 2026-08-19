@@ -1,16 +1,14 @@
-# watter app
+# Water Monitoring System
 
-A new Flutter project.
+This repository contains the mobile application and embedded firmware used by the water monitoring project.
 
-## Getting Started
+## Repository structure
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- `lib/`, `android/`, `ios/`, `web/`, `windows/`, `linux/`, `macos/`  
+  Flutter mobile/web/desktop application.
+- `firmware/stm32/`  
+  STM32 firmware sources and project files (`main.c`, `adc_test.ioc`).
+- `firmware/esp8266/`  
+  ESP8266 gateway firmware (`esp8266_gateway.ino`).
+- `functions/`  
+  Firebase Cloud Functions backend.

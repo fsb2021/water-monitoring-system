@@ -39,8 +39,6 @@ Le système mesure quatre paramètres :
 
 La carte STM32 acquiert et traite les mesures. L'ESP8266 les transmet à Firebase par Wi-Fi. Les valeurs, l'historique, les alertes et les réglages sont accessibles depuis une application Flutter et un logiciel de supervision Python. Un module **SIM800L** ajoute une voie d'alerte SMS lorsque le Wi-Fi ou le cloud n'est pas disponible.
 
-> [!IMPORTANT]
-> Ce prototype fournit une aide à la surveillance et à la maintenance. Il ne remplace pas les analyses chimiques périodiques, notamment pour la dureté totale (TH), ni un dispositif industriel certifié de sécurité.
 
 ## Fonctionnalités
 

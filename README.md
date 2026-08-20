@@ -17,14 +17,11 @@
 - [Matériel utilisé](#matériel-utilisé)
 - [Branchements](#branchements)
 - [Fonctionnement](#fonctionnement)
-- [Organisation du dépôt](#organisation-du-dépôt)
 - [Installation et configuration](#installation-et-configuration)
 - [Structure des données](#structure-des-données)
 - [Alertes GSM/SMS](#alertes-gsmsms)
 - [Calibration](#calibration)
 - [Tests et diagnostic](#tests-et-diagnostic)
-- [Sécurité](#sécurité)
-- [Limites et améliorations](#limites-et-améliorations)
 
 ## Présentation
 
@@ -318,16 +315,6 @@ AT+CMGS="+216XXXXXXXX"
 <Ctrl+Z>
 ```
 
-Un envoi n'est considéré réussi qu'après réception de `+CMGS:` puis `OK`. En cas de `ERROR` ou `+CMS ERROR`, le système journalise l'échec, conserve l'acquisition active et programme une nouvelle tentative, par exemple après 15 minutes. Les destinataires sont traités l'un après l'autre afin d'éviter le chevauchement des commandes AT.
-
-### Contenu recommandé d'un SMS
-
-- type d'événement : anomalie ou retour à la normale ;
-- nom du capteur ;
-- valeur et unité ;
-- seuil dépassé ;
-- date et heure ;
-- état Wi-Fi/cloud si le GSM fonctionne en mode secours.
 
 ## Calibration
 
@@ -351,21 +338,6 @@ Un envoi n'est considéré réussi qu'après réception de `+CMGS:` puis `OK`. E
 - Déterminer expérimentalement la courbe et le seuil adaptés au circuit industriel.
 - Éviter les bulles, la lumière parasite et les dépôts sur la partie optique.
 
-## Tests et diagnostic
-
-### Ordre de test recommandé
-
-1. Vérifier toutes les tensions sans connecter les modules sensibles.
-2. Tester les valeurs ADC brutes avant d'appliquer les équations de conversion.
-3. Vérifier la présence et le CRC du DS18B20.
-4. Observer les trames STM32 sur le port série.
-5. Vérifier que l'ESP8266 reçoit chaque trame et met à jour Firebase.
-6. Tester les commandes descendantes et les délais de mesure.
-7. Simuler chaque dépassement et chaque retour à la normale.
-8. Couper le Wi-Fi et vérifier le mode GSM `BACKUP`.
-9. Envoyer un SMS vers chaque numéro configuré.
-10. Tester la reconnexion Wi-Fi et l'absence de doublons après reprise.
-
 ### Diagnostic rapide du GSM
 
 | Résultat | Signification | Vérification |
@@ -379,58 +351,9 @@ Un envoi n'est considéré réussi qu'après réception de `+CMGS:` puis `OK`. E
 | Redémarrages pendant `CMGS` | Chute de tension lors du burst radio | Alimentation 2 A, condensateur, câbles courts |
 | `+CMS ERROR` | Erreur SMS ou réseau | Lire le code, vérifier centre SMS, crédit, format du numéro et stockage |
 
-## Sécurité
 
-- Ne jamais publier le mot de passe Wi-Fi, la clé Firebase, les tokens API ou les vrais numéros de téléphone.
-- Ajouter les fichiers contenant des secrets au `.gitignore` et fournir uniquement des fichiers `*.example`.
-- Utiliser Firebase Authentication et des règles RTDB basées sur les rôles.
-- Refuser côté STM32 toute commande non reconnue ou hors plage.
-- Limiter la taille des trames UART et vérifier les fins de ligne pour éviter les débordements de buffer.
-- Journaliser les changements de seuil, de calibration, de destinataires et de mode GSM.
-- Restreindre les commandes de calibration et de configuration aux profils autorisés.
 
-Exemple minimal :
 
-```gitignore
-# Secrets and local configuration
-config.h
-firebase_options.dart
-.env
-serviceAccountKey.json
-
-# Build outputs
-Debug/
-Release/
-.dart_tool/
-build/
-__pycache__/
-*.pyc
-```
-
-Si `firebase_options.dart` est nécessaire à la compilation, ne pas le supprimer aveuglément : vérifier d'abord les recommandations Firebase pour la plateforme et protéger surtout les secrets serveur et les règles d'accès.
-
-## Limites et améliorations
-
-### Limites actuelles
-
-- Le TH, les chlorures et le développement bactérien ne sont pas mesurés directement.
-- Les sondes électrochimiques nécessitent une calibration et un entretien périodiques.
-- La précision dépend du conditionnement analogique, du bruit électrique et de l'installation mécanique.
-- Firebase et les applications distantes dépendent d'une connexion Internet.
-- Les SMS dépendent de la couverture 2G, de l'opérateur, du crédit et de la qualité de l'alimentation GSM.
-- Le prototype n'est pas un automate de sécurité certifié.
-
-### Améliorations possibles
-
-- Stockage local sur carte SD et resynchronisation après retour du réseau.
-- Notifications push via Firebase Cloud Messaging en complément du SMS.
-- Chiffrement et authentification des commandes embarquées.
-- Mise à jour distante sécurisée de l'ESP8266.
-- Isolation galvanique et PCB industriel avec protections ESD/surtension.
-- Surveillance de l'alimentation et SMS de batterie faible.
-- Watchdog matériel et journal de redémarrage.
-- Redondance des sondes critiques et détection automatique des dérives.
-- Boîtier IP65, connecteurs industriels et maintenance simplifiée des sondes.
 
 ## Références techniques
 

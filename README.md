@@ -226,35 +226,8 @@ Les valeurs ci-dessous proviennent du cahier de suivi présenté dans le rapport
 | Température | 13 à 18 °C | Alerte hors intervalle |
 | Conductivité | < 300 µS/cm | Alerte au-dessus de la limite |
 | Turbidité | Seuil à déterminer sur site | Établir une référence après calibration |
-| Dureté TH | < 1 °f | Contrôle de laboratoire, non mesuré par ce prototype |
 
-> [!NOTE]
-> Certaines versions du firmware utilisent une limite de conductivité de **3,0 mS/cm**, soit **3000 µS/cm**. Les valeurs `300 µS/cm` et `3,0 mS/cm` ne sont pas équivalentes. Conserver les seuils dans une configuration unique et valider la valeur officielle avant les essais d'alerte.
 
-Pour éviter les SMS répétés lorsque la valeur oscille autour d'une limite, le firmware doit appliquer une hystérésis, confirmer l'anomalie sur plusieurs mesures et mémoriser l'état de l'alerte.
-
-## Organisation du dépôt
-
-Structure recommandée pour maintenir séparément les différents sous-systèmes :
-
-```text
-water-monitoring-system/
-├── firmware/
-│   ├── stm32/                 # Projet STM32CubeIDE
-│   └── esp8266/               # Passerelle Wi-Fi/Firebase
-├── software/
-│   ├── desktop-python/        # Supervision PC
-│   └── mobile-flutter/        # Application Android/iOS
-├── hardware/
-│   ├── pcb/                   # Schémas et PCB KiCad
-│   └── enclosure/             # Boîtier et fichiers mécaniques
-├── docs/
-│   ├── images/                # Architecture, câblage, captures
-│   └── report/                # Rapport et documentation technique
-├── config/
-│   └── examples/              # Modèles de configuration sans secrets
-└── README.md
-```
 
 ## Installation et configuration
 
@@ -476,6 +449,3 @@ Master EEA - Intégration des systèmes électroniques dédiés aux énergies re
 Faculté des Sciences de Bizerte - Université de Carthage  
 Projet réalisé chez FATAR International, année universitaire 2025-2026.
 
-## Licence
-
-Aucune licence n'est incluse pour le moment. Sans fichier `LICENSE`, le code reste protégé par le droit d'auteur. Ajouter une licence adaptée avant d'autoriser explicitement la réutilisation ou la redistribution du projet.
